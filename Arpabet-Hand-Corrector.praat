@@ -121,9 +121,18 @@ for file from 1 to files
 	# PERFORM INITIAL OPERATIONS ON TEXTGRID
 	select TextGrid 'gridname$'
 	call GetTier 'phone_tier$' phone_tier
+	if phone_tier = -1
+		exit The tier 'phone_tier$' is missing from 'soundfile$'.TextGrid!
+	endif
 	call GetTier 'word_tier$' word_tier
+	if word_tier = -1
+		exit The tier 'word_tier$' is missing from 'soundfile$'.TextGrid!
+	endif
 	if create_notes_tier = 1
-		Insert interval tier... (tiers+1) notes
+		call GetTier notes notes_tier
+		if notes_tier = -1
+			Insert interval tier... (tiers+1) notes
+		endif
 	endif
 
 	# LOOP THROUGH INTERVALS
@@ -399,13 +408,12 @@ procedure GetTier name$ variable$
 		'variable$' = itier - 1
 	endif
 	if 'variable$' = 0
-		exit The tier 'name$' is missing from 'soundfile$'.TextGrid!
+		'variable$' = -1
 	endif
 endproc
 
 # PROCEDURE TO GENERATE REPORTS FOR EACH FILE CORRECTED
 procedure GenerateReport
-
 	# GET TIME/DATE AND FORMAT LISTS
 	rundate$ = date$ ()
 	corrected_tokens$ = replace_regex$ (corrected_tokens$, ", $", ".", 0)
