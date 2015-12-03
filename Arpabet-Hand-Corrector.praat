@@ -57,7 +57,7 @@ skipped_tokens$ = ""
 continue = 0
 
 # OPEN THE TARGETS FILE IF THE USER HAS CHOSEN TO USE ONE
-if targets = 5
+if targets = 4
 	Read Table from tab-separated file... 'targets_file$'
 	targets$ = selected$ ("Table", 1)
 endif
