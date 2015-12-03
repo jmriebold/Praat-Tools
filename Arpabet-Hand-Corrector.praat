@@ -101,7 +101,7 @@ for file from 1 to files
 		if progress_file_present = 0
 			select Strings list
 			plus LongSound 'soundfile$'
-			if targets = 5
+			if targets = 4
 				plus Table 'targets$'
 			endif
 			if progress_file_present = 1
@@ -290,7 +290,7 @@ endfor
 
 # REMOVE REMAINING OBJECTS AND PRINT REPORT
 select Strings list
-if targets = 5
+if targets = 4
 	plus Table 'targets$'
 endif
 Remove
@@ -380,7 +380,7 @@ procedure Correct
 		select Strings list
 		plus LongSound 'soundfile$'
 		plus TextGrid 'gridname$'
-		if targets = 5
+		if targets = 4
 			plus Table 'targets$'
 		endif
 		if progress_file_present = 1
