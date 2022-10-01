@@ -3,13 +3,13 @@
 #                                                                                       #
 # DESCRIPTION:                                                                          #
 # This script (modeled on Mietta Lennes' collect_formant_data_from_files.praat          #
-# available at http://www.helsinki.fi/~lennes/praat-scripts/ and distributed under the  # 
+# available at http://www.helsinki.fi/~lennes/praat-scripts/ and distributed under the  #
 # GNU General Public License, copyright 4/7/2003) is designed to be run on a set of     #
 # soundfiles and TextGrids. It extracts duration (in ms), timestamps (in s), and        #
 # F1/F2/F3 from all labeled intervals, and extracts labels for corresponding word,      #
 # along with any notes present in the TextGrid. Last, the script outputs the analyst    #
 # name, date, settings, OS, and Praat version to the results file. The script can also  #
-# be constrained to a user-defined set of words using the "targets" option.             # 
+# be constrained to a user-defined set of words using the "targets" option.             #
 #                                                                                       #
 # NOTES:                                                                                #
 # 1) Remember to add a / or \ (depending on the OS) to the end of all paths. 2)         #
@@ -33,7 +33,7 @@
 # 03/10/13: Reordered formant options.                                                  #
 # 02/22/13: Added option to append data to an existing results file.                    #
 # 02/19/13: Added counter for number of vowels analyzed if using targets option.        #
-# 02/14/13: Fixed a bug involving running the script over multiple files, simplified    # 
+# 02/14/13: Fixed a bug involving running the script over multiple files, simplified    #
 #           the extraction of sounds from longsounds.                                   #
 # 01/19/13: Added ability to select the formant measurement points.                     #
 # 01/01/13: Release version.                                                            #
@@ -45,8 +45,8 @@
 # PROMPT THE USER FOR LOCATION OF INPUT/OUTPUT FILES, FORMANT SETTINGS, ETC.
 form Vowel Analyzer
 	comment Paths:
-	sentence Soundfile_directory 
-	sentence Textgrid_directory 
+	sentence Soundfile_directory
+	sentence Textgrid_directory
 	sentence Results_file results.txt
 	optionmenu Use_targets_file 2
 		option yes
