@@ -26,6 +26,7 @@
 # into Excel.                                                                           #
 #                                                                                       #
 # CHANGELOG:                                                                            #
+# 09/30/22: Added error handling for pitch extraction, changed default file extension.  #
 # 02/08/14: Rewrote code for results file generation, added pitch extraction option.    #
 # 02/07/14: Added metadata output to the script (analyst, version, settings, etc.).     #
 # 10/23/13: Changed the behavior of the script to target only non-empty intervals.      #
@@ -174,7 +175,7 @@ for ifile to numberoffiles
 		To Formant (burg)... time_step number_of_formants maximum_formant window_length preemphasis_from
 		if extract_pitch = 1
 			select Sound 'soundfile$'
-			To Pitch... 0 left_Pitch_range right_Pitch_range
+			nocheck To Pitch... 0 left_Pitch_range right_Pitch_range
 		endif
 
 		# PASS THROUGH EACH INTERVAL IN SELECTED TIER AND GET LABEL
@@ -223,11 +224,11 @@ for ifile to numberoffiles
 
 				# EXTRACT PITCH AT INTERVAL(S)
 				if extract_pitch = 1
-					select Pitch 'soundfile$'
-					f0_2 = Get value at time... midpoint Hertz Linear
+					nocheck select Pitch 'soundfile$'
+					f0_2 = nocheck Get value at time... midpoint Hertz Linear
 					if measurement_points != 1
-						f0_1 = Get value at time... onset Hertz Linear
-						f0_3 = Get value at time... offset Hertz Linear
+						f0_1 = nocheck Get value at time... onset Hertz Linear
+						f0_3 = nocheck Get value at time... offset Hertz Linear
 					endif
 				endif
 
@@ -291,7 +292,7 @@ for ifile to numberoffiles
 	select Sound 'soundfile$'
 	plus Formant 'soundfile$'
 	if extract_pitch = 1
-		plus Pitch 'soundfile$'
+		nocheck plus Pitch 'soundfile$'
 	endif
 	Remove
 endfor
