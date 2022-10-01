@@ -47,7 +47,7 @@ form Vowel Analyzer
 	comment Paths:
 	sentence Soundfile_directory
 	sentence Textgrid_directory
-	sentence Results_file results.txt
+	sentence Results_file results.tsv
 	optionmenu Use_targets_file 2
 		option yes
 		option no
